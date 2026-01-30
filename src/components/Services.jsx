@@ -113,7 +113,7 @@ const ServiceRow = ({ icon, title, description, features, image, images, index, 
                         </div>
                         <h3 className="text-3xl font-bold text-primary">{title}</h3>
                     </div>
-                    <div className={`w-20 h-1 bg-secondary rounded-full mb-6 ${isEven ? 'mr-auto' : 'ml-auto lg:mr-0 ml-0'}`}></div>
+                    <div className="w-20 h-1 bg-secondary rounded-full mb-6 mr-auto"></div>
 
                     {/* Description */}
                     <p className="text-lg text-gray-600 leading-relaxed mb-6">

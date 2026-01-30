@@ -13,6 +13,10 @@ import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import FleetPage from './pages/FleetPage';
 import ContactPage from './pages/ContactPage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
+import CookieConsent from './components/CookieConsent';
 
 function App() {
   return (
@@ -27,11 +31,15 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/fleet" element={<FleetPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
           </Routes>
         </main>
         <BookingModal />
         <Footer />
         <FloatingButtons />
+        <CookieConsent />
       </div>
     </BookingProvider>
   );
