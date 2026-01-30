@@ -85,7 +85,7 @@ const Stats = () => {
                     <div className="flex flex-col items-center lg:items-start order-3 lg:order-3 space-y-8">
                         <StatItem number="15" label="Cars Fleet" />
                         <StatItem number="20" label="Team Members" />
-                        <StatItem number="10" label="Years of Experience" />
+                        <StatItem number="8" label="Years of Experience" />
                     </div>
                 </div>
             </div>
