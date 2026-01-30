@@ -5,6 +5,7 @@ import Fleet from '../components/Fleet';
 import About from '../components/About';
 import Packages from '../components/Packages';
 import Testimonials from '../components/Testimonials';
+import Stats from '../components/Stats';
 import Contact from '../components/Contact';
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Services />
             <Packages />
             <Fleet />
+            <Stats />
             <Testimonials />
             <Contact />
         </>
