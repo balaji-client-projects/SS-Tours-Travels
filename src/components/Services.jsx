@@ -204,8 +204,7 @@ const Services = () => {
             ],
             features: [
                 "Door-to-door pickup and drop",
-                "Available for instant booking",
-                "Zero return fare liability"
+                "Available for instant booking"
             ],
             image: dzireImg
         },
