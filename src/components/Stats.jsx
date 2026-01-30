@@ -38,14 +38,23 @@ const CountUp = ({ to, duration = 2 }) => {
     return <span ref={nodeRef}>{count.toLocaleString()}+</span>;
 };
 
-const StatItem = ({ number, label, align = "center" }) => (
-    <div className={`flex flex-col items-center ${align === 'right' ? 'lg:items-start' : align === 'left' ? 'lg:items-end' : ''} mb-8 lg:mb-12`}>
-        <h3 className="text-4xl md:text-5xl font-bold text-secondary mb-2">
-            <CountUp to={number} />
-        </h3>
-        <p className="text-white text-lg font-medium tracking-wide">{label}</p>
-    </div>
-);
+const StatItem = ({ number, label, align = "center" }) => {
+    // Define alignment classes based on prop
+    const alignmentClasses = align === 'right'
+        ? 'items-center lg:items-end text-center lg:text-right'
+        : align === 'left'
+            ? 'items-center lg:items-start text-center lg:text-left'
+            : 'items-center text-center';
+
+    return (
+        <div className={`flex flex-col ${alignmentClasses} mb-8 lg:mb-12`}>
+            <h3 className="text-4xl md:text-5xl font-bold text-secondary mb-2">
+                <CountUp to={number} />
+            </h3>
+            <p className="text-white text-lg font-medium tracking-wide">{label}</p>
+        </div>
+    );
+};
 
 const Stats = () => {
     return (
@@ -60,11 +69,11 @@ const Stats = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                    {/* Left Stats */}
+                    {/* Left Stats - Right Aligned on Desktop */}
                     <div className="flex flex-col items-center lg:items-end order-2 lg:order-1 space-y-8">
-                        <StatItem number="8,750" label="Rides Completed" />
-                        <StatItem number="8,400" label="Happy Customers" />
-                        <StatItem number="500" label="Destinations Covered" /> {/* Replaced duplicate happy customers with destinations */}
+                        <StatItem number="8,750" label="Rides Completed" align="right" />
+                        <StatItem number="8,400" label="Happy Customers" align="right" />
+                        <StatItem number="500" label="Destinations Covered" align="right" />
                     </div>
 
                     {/* Center Image */}
@@ -81,11 +90,11 @@ const Stats = () => {
                         />
                     </div>
 
-                    {/* Right Stats */}
+                    {/* Right Stats - Left Aligned on Desktop */}
                     <div className="flex flex-col items-center lg:items-start order-3 lg:order-3 space-y-8">
-                        <StatItem number="15" label="Cars Fleet" />
-                        <StatItem number="20" label="Team Members" />
-                        <StatItem number="8" label="Years of Experience" />
+                        <StatItem number="15" label="Cars Fleet" align="left" />
+                        <StatItem number="20" label="Team Members" align="left" />
+                        <StatItem number="8" label="Years of Experience" align="left" />
                     </div>
                 </div>
             </div>
