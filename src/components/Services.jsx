@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaRoute, FaPlaneDeparture, FaCity, FaMapMarkedAlt, FaCarSide, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import { FadeIn, ScaleIn } from './common/Reveal';
 
 import innovaImg from '../assets/innova_highway.png';
 import dzireImg from '../assets/dzire_oneway.png';
@@ -84,88 +85,91 @@ const ServiceRow = ({ icon, title, description, features, image, images, index, 
     const isServicePage = location.pathname === '/services';
 
     return (
-        <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-start lg:items-center gap-8 lg:gap-16 mb-20`}>
+        // ... (inside ServiceRow return)
+        <div id={title.replace(/\s+/g, '-').toLowerCase()} className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-20 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
             {/* Image Section */}
             <div className="w-full lg:w-1/2 relative">
-                <div className={`absolute inset-0 bg-secondary/20 transform ${isEven ? '-rotate-3' : 'rotate-3'} rounded-2xl transition-transform duration-300 group-hover:rotate-0`}></div>
+                <ScaleIn delay={0.1}>
+                    <div className={`absolute inset-0 bg-secondary/20 transform ${isEven ? '-rotate-3' : 'rotate-3'} rounded-2xl transition-transform duration-300 group-hover:rotate-0`}></div>
 
-                {images ? (
-                    <ImageSlideshow images={images} />
-                ) : (
-                    <img
-                        src={image}
-                        alt={title}
-                        className="relative w-full h-[300px] lg:h-[400px] object-cover rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-[1.02]"
-                    />
-                )}
-
+                    {images ? (
+                        <ImageSlideshow images={images} />
+                    ) : (
+                        <img
+                            src={image}
+                            alt={title}
+                            className="relative w-full h-[300px] lg:h-[400px] object-cover rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-[1.02]"
+                        />
+                    )}
+                </ScaleIn>
             </div>
 
             {/* Content Section */}
             <div className="w-full lg:w-1/2">
-                <div className="flex items-center gap-4 mb-4">
-                    <div className="p-4 bg-primary rounded-full text-secondary text-2xl shadow-lg">
-                        {icon}
+                <FadeIn direction={isEven ? "left" : "right"} delay={0.2}>
+                    <div className="flex items-center gap-4 mb-4">
+                        <div className="p-4 bg-primary rounded-full text-secondary text-2xl shadow-lg">
+                            {icon}
+                        </div>
+                        <h3 className="text-3xl font-bold text-primary">{title}</h3>
                     </div>
-                    <h3 className="text-3xl font-bold text-primary">{title}</h3>
-                </div>
-                <div className={`w-20 h-1 bg-secondary rounded-full mb-6 ${isEven ? 'mr-auto' : 'ml-auto lg:mr-0 ml-0'}`}></div>
+                    <div className={`w-20 h-1 bg-secondary rounded-full mb-6 ${isEven ? 'mr-auto' : 'ml-auto lg:mr-0 ml-0'}`}></div>
 
-                {/* Description - Brief on Home, Elaborated on Services Page */}
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                    {description}
-                </p>
+                    {/* Description */}
+                    <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                        {description}
+                    </p>
 
-                {/* Additional Detailed Content (Only on Services Page) */}
-                {isServicePage && detailedContent && (
-                    <div className="mb-8 space-y-4 text-gray-600">
-                        {detailedContent.map((paragraph, idx) => (
-                            <p key={idx} className="leading-relaxed">
-                                {paragraph}
-                            </p>
-                        ))}
-                    </div>
-                )}
-
-                {/* Features List (Always Visible or refined for context) */}
-                <ul className="space-y-3 mb-8">
-                    {features && features.map((feature, i) => (
-                        <li key={i} className="flex items-center gap-3 text-gray-700">
-                            <span className="w-2 h-2 bg-secondary rounded-full"></span>
-                            <span>{feature}</span>
-                        </li>
-                    ))}
-                    {!features && (
-                        <>
-                            <li className="flex items-center gap-3 text-gray-700">
-                                <span className="w-2 h-2 bg-secondary rounded-full"></span>
-                                <span>Calculated per Km or fixed package rates</span>
-                            </li>
-                            <li className="flex items-center gap-3 text-gray-700">
-                                <span className="w-2 h-2 bg-secondary rounded-full"></span>
-                                <span>Well-maintained AC vehicles</span>
-                            </li>
-                            <li className="flex items-center gap-3 text-gray-700">
-                                <span className="w-2 h-2 bg-secondary rounded-full"></span>
-                                <span>Experienced & Polite Drivers</span>
-                            </li>
-                        </>
+                    {/* Additional Detailed Content (Only on Services Page) */}
+                    {isServicePage && detailedContent && (
+                        <div className="mb-8 space-y-4 text-gray-600">
+                            {detailedContent.map((paragraph, idx) => (
+                                <p key={idx} className="leading-relaxed">
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
                     )}
 
-                </ul>
+                    {/* Features List */}
+                    <ul className="space-y-3 mb-8">
+                        {features && features.map((feature, i) => (
+                            <li key={i} className="flex items-center gap-3 text-gray-700">
+                                <span className="w-2 h-2 bg-secondary rounded-full"></span>
+                                <span>{feature}</span>
+                            </li>
+                        ))}
+                        {!features && (
+                            <>
+                                <li className="flex items-center gap-3 text-gray-700">
+                                    <span className="w-2 h-2 bg-secondary rounded-full"></span>
+                                    <span>Calculated per Km or fixed package rates</span>
+                                </li>
+                                <li className="flex items-center gap-3 text-gray-700">
+                                    <span className="w-2 h-2 bg-secondary rounded-full"></span>
+                                    <span>Well-maintained AC vehicles</span>
+                                </li>
+                                <li className="flex items-center gap-3 text-gray-700">
+                                    <span className="w-2 h-2 bg-secondary rounded-full"></span>
+                                    <span>Experienced & Polite Drivers</span>
+                                </li>
+                            </>
+                        )}
+                    </ul>
 
-                {location.pathname === '/' ? (
-                    <Link to="/services" className="inline-block bg-primary text-white py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-primary transition-all duration-300 shadow-md">
-                        View Details
-                    </Link>
-                ) : (
-                    <button
-                        onClick={() => openBookingModal({ serviceType: title })}
-                        className="inline-block bg-primary text-white py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-primary transition-all duration-300 shadow-md"
-                    >
-                        Book Now
-                    </button>
-                )}
+                    {location.pathname === '/' ? (
+                        <Link to="/services" className="inline-block bg-primary text-white py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-primary transition-all duration-300 shadow-md">
+                            View Details
+                        </Link>
+                    ) : (
+                        <button
+                            onClick={() => openBookingModal({ serviceType: title })}
+                            className="inline-block bg-primary text-white py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-primary transition-all duration-300 shadow-md"
+                        >
+                            Book Now
+                        </button>
+                    )}
+                </FadeIn>
             </div>
         </div>
     );

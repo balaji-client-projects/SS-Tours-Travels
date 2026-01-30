@@ -1,5 +1,6 @@
 import React from 'react';
 import { useBooking } from '../context/BookingContext';
+import { FadeIn, ScaleIn } from './common/Reveal';
 import { FaUserFriends, FaSuitcase, FaCheckCircle, FaPhoneAlt } from 'react-icons/fa';
 import fleet1 from '../assets/fleet1.jpg';
 import fleet2 from '../assets/fleet2.jpg';
@@ -95,59 +96,61 @@ const Fleet = () => {
 
                 <div className="space-y-24">
                     {fleet.map((item, index) => (
-                        <div key={index} className={`flex flex-col md:flex-row items-center gap-12 lg:gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                            {/* Image Section */}
-                            <div className="w-full md:w-1/2">
-                                <div className="relative group">
-                                    <div className={`absolute -inset-4 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300 opacity-70`}></div>
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="relative w-full h-[300px] md:h-[400px] object-cover rounded-xl shadow-2xl transform transition-transform duration-500 hover:scale-[1.02]"
-                                    />
-                                    <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-gray-700">
-                                        <p className="font-bold text-secondary text-sm">{item.category}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Content Section */}
-                            <div className="w-full md:w-1/2">
-                                <span className="text-white/60 font-semibold tracking-wide uppercase text-sm mb-2 block border-l-4 border-secondary pl-3">
-                                    {item.category}
-                                </span>
-                                <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                                    {item.title}
-                                </h3>
-                                <p className="text-gray-400 text-lg leading-relaxed mb-8 text-justify">
-                                    {item.description}
-                                </p>
-
-                                <div className="grid grid-cols-2 gap-6 mb-8">
-                                    <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
-                                        <div className="flex items-center gap-3 mb-1">
-                                            <FaUserFriends className="text-secondary" />
-                                            <span className="text-white font-bold">{item.seat} Passengers</span>
+                        <ScaleIn key={index} delay={index * 0.1}>
+                            <div className={`flex flex-col md:flex-row items-center gap-12 lg:gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                                {/* Image Section */}
+                                <div className="w-full md:w-1/2">
+                                    <div className="relative group">
+                                        <div className={`absolute -inset-4 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300 opacity-70`}></div>
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="relative w-full h-[300px] md:h-[400px] object-cover rounded-xl shadow-2xl transform transition-transform duration-500 hover:scale-[1.02]"
+                                        />
+                                        <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-gray-700">
+                                            <p className="font-bold text-secondary text-sm">{item.category}</p>
                                         </div>
-                                        <span className="text-gray-500 text-xs">Seating Capacity</span>
-                                    </div>
-                                    <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
-                                        <div className="flex items-center gap-3 mb-1">
-                                            <FaSuitcase className="text-secondary" />
-                                            <span className="text-white font-bold">{item.luggage}</span>
-                                        </div>
-                                        <span className="text-gray-500 text-xs">Luggage Space</span>
                                     </div>
                                 </div>
 
-                                <button
-                                    onClick={() => openBookingModal({ vehicle: item.category, serviceType: 'Outstation' })}
-                                    className="inline-flex items-center gap-2 bg-white text-black py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-black transition-all duration-300 transform hover:-translate-y-1"
-                                >
-                                    <FaPhoneAlt size={16} /> Book Now
-                                </button>
+                                {/* Content Section */}
+                                <div className="w-full md:w-1/2">
+                                    <span className="text-white/60 font-semibold tracking-wide uppercase text-sm mb-2 block border-l-4 border-secondary pl-3">
+                                        {item.category}
+                                    </span>
+                                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-gray-400 text-lg leading-relaxed mb-8 text-justify">
+                                        {item.description}
+                                    </p>
+
+                                    <div className="grid grid-cols-2 gap-6 mb-8">
+                                        <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                            <div className="flex items-center gap-3 mb-1">
+                                                <FaUserFriends className="text-secondary" />
+                                                <span className="text-white font-bold">{item.seat} Passengers</span>
+                                            </div>
+                                            <span className="text-gray-500 text-xs">Seating Capacity</span>
+                                        </div>
+                                        <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                            <div className="flex items-center gap-3 mb-1">
+                                                <FaSuitcase className="text-secondary" />
+                                                <span className="text-white font-bold">{item.luggage}</span>
+                                            </div>
+                                            <span className="text-gray-500 text-xs">Luggage Space</span>
+                                        </div>
+                                    </div>
+
+                                    <button
+                                        onClick={() => openBookingModal({ vehicle: item.category, serviceType: 'Outstation' })}
+                                        className="inline-flex items-center gap-2 bg-white text-black py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-black transition-all duration-300 transform hover:-translate-y-1"
+                                    >
+                                        <FaPhoneAlt size={16} /> Book Now
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        </ScaleIn>
                     ))}
                 </div>
             </div>
