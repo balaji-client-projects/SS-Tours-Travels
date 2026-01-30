@@ -11,6 +11,7 @@ import fleet6 from '../assets/fleet6.jpg';
 import fleet7 from '../assets/fleet7.jpg';
 import fleet8 from '../assets/fleet8.jpg';
 import fleet9 from '../assets/fleet9.jpg';
+import fleet10 from '../assets/tempo_12_seater.jpg';
 
 const Fleet = () => {
     const { openBookingModal } = useBooking();
@@ -78,6 +79,14 @@ const Fleet = () => {
             seat: "4+1",
             luggage: "2 Bags",
             description: "Another excellent option in our sedan category, this Swift Dzire offers the same level of comfort and reliability. Whether it's a quick run to the airport or a day trip around the city, this vehicle ensures you reach your destination fresh and on time."
+        },
+        {
+            image: fleet10,
+            title: "Tempo Traveller - 12 Seater",
+            category: "Tempo Traveller - 12 Seater",
+            seat: "12+1",
+            luggage: "6-8 Bags",
+            description: "Perfect for large family trips, corporate outings, or pilgrimages. Our 12-seater Tempo Traveller offers ample space for passengers and luggage. With comfortable push-back seats and a spacious interior, your group can travel together in comfort and style. Enjoy the journey as much as the destination."
         }
     ];
 
