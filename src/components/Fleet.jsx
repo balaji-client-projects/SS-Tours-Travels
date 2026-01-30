@@ -35,10 +35,10 @@ const Fleet = () => {
         {
             image: fleet3,
             title: "Premium Comfort for Every Journey",
-            category: "Premium SUV - 7 Seater",
-            seat: "6+1",
-            luggage: "3-4 Bags",
-            description: "Travel in luxury with our premium SUV fleet. Perfect for corporate travel, VIP guests, or special occasions, these vehicles offer top-tier comfort and style. Enjoy a smooth ride with advanced safety features and premium interiors."
+            category: "Premium Sedan - 4 Seater",
+            seat: "4+1",
+            luggage: "2-3 Bags",
+            description: "Travel in luxury with our premium sedan fleet. Perfect for corporate travel, VIP guests, or special occasions, these vehicles offer top-tier comfort and style. Enjoy a smooth ride with advanced safety features and premium interiors."
         },
         {
             image: fleet4,
