@@ -196,11 +196,11 @@ const Services = () => {
         },
         {
             icon: <FaCarSide />,
-            title: "One Way Outstation",
-            description: "Need to go to another city but don't want to pay for the return trip? Our One Way Drop service is perfect for you. Pay only for the distance you travel one way. It is economical, reliable, and available for all major cities and towns from Hyderabad like Vijayawada, Vizag, and Kurnool.",
+            title: "One-way Outstation Cabs in Hyderabad",
+            description: "Convenient One-Way Travel Solutions. Need a one-way taxi from Hyderabad? Look no further. We offer convenient and cost-effective one-way outstation cabs to various destinations. Forget the hassle of return trips and pay only for the journey you need. Our experienced drivers ensure timely arrivals, and our well-maintained fleet guarantees a comfortable ride.",
             detailedContent: [
-                "Our One-Way service allows you to pay only for the ride to your destination without the burden of return fares. This service is ideal for travelers who have flexible plans or simply need a drop-off at a specific location.",
-                "We cover a vast network of destinations, ensuring connectivity to major cities and towns. With SS Tours & Travels, you get the reliability of a premium service at the most economical rates."
+                "Our one-way outstation cabs from Hyderabad are ideal for those who need to travel to a different city without the need to return immediately. Whether you're traveling for a business meeting, relocating, or simply visiting family, our one-way taxi services in Hyderabad provide the flexibility and affordability you need. We cover all major cities and towns, ensuring you can reach your destination efficiently.",
+                "With SS Tours & Travels, booking a one-way outstation cab from Hyderabad is straightforward and stress-free. Our user-friendly website and phone call make it easy to book your ride, choose your vehicle, and confirm your trip. Our transparent pricing ensures you know exactly what you're paying for, with no hidden fees. Experience the best one-way taxi services in Hyderabad with SS Tours & Travels and enjoy a seamless travel experience."
             ],
             features: [
                 "Door-to-door pickup and drop",

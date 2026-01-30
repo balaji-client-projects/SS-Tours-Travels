@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaTimes, FaWhatsapp, FaCar, FaMapMarkerAlt, FaCalendarAlt, FaUser, FaPhone } from 'react-icons/fa';
+import { FaTimes, FaWhatsapp, FaCar, FaUser, FaPhone } from 'react-icons/fa';
 import { useBooking } from '../context/BookingContext';
 
 const BookingModal = () => {
@@ -8,11 +8,6 @@ const BookingModal = () => {
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
-        pickup: '',
-        drop: '',
-        date: '',
-        time: '',
-        tripType: 'Outstation',
         vehicle: ''
     });
 
@@ -20,8 +15,7 @@ const BookingModal = () => {
         if (isBookingOpen) {
             setFormData(prev => ({
                 ...prev,
-                vehicle: bookingData.vehicle || '',
-                tripType: bookingData.serviceType || 'Outstation'
+                vehicle: bookingData.vehicle || ''
             }));
         }
     }, [isBookingOpen, bookingData]);
@@ -40,16 +34,11 @@ const BookingModal = () => {
         // Construct the message using WhatsApp monospace (```) to simulate a table
         let message = "```\n";
         message += "----------------------------\n";
-        message += "      BOOKING DETAILS       \n";
+        message += "      BOOKING REQUEST       \n";
         message += "----------------------------\n";
         message += `Name      : ${formData.name}\n`;
         message += `Phone     : ${formData.phone}\n`;
-        message += `Trip Type : ${formData.tripType}\n`;
         message += `Vehicle   : ${formData.vehicle || 'Any'}\n`;
-        message += `Pickup    : ${formData.pickup}\n`;
-        message += `Drop      : ${formData.drop}\n`;
-        message += `Date      : ${formData.date}\n`;
-        message += `Time      : ${formData.time}\n`;
         message += "----------------------------\n";
         message += "```";
 
@@ -86,7 +75,7 @@ const BookingModal = () => {
                         {/* Form */}
                         <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
 
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-4">
                                 <div className="space-y-1">
                                     <label className="text-sm font-semibold text-gray-700 block">Full Name</label>
                                     <div className="relative">
@@ -102,6 +91,7 @@ const BookingModal = () => {
                                         />
                                     </div>
                                 </div>
+
                                 <div className="space-y-1">
                                     <label className="text-sm font-semibold text-gray-700 block">Phone Number</label>
                                     <div className="relative">
@@ -117,25 +107,7 @@ const BookingModal = () => {
                                         />
                                     </div>
                                 </div>
-                            </div>
 
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-1">
-                                    <label className="text-sm font-semibold text-gray-700 block">Trip Type</label>
-                                    <div className="relative">
-                                        <select
-                                            name="tripType"
-                                            value={formData.tripType}
-                                            onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none bg-white"
-                                        >
-                                            <option value="Outstation">Outstation Trip</option>
-                                            <option value="Local Hourly">Local Hourly Package</option>
-                                            <option value="Airport Transfer">Airport Transfer</option>
-                                            <option value="City Sightseeing">City Sightseeing</option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-semibold text-gray-700 block">Vehicle Preference</label>
                                     <div className="relative">
@@ -152,68 +124,6 @@ const BookingModal = () => {
                                             <option value="SUV">SUV/Ertiga</option>
                                             <option value="Tempo Traveller">Tempo Traveller</option>
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="space-y-1">
-                                <label className="text-sm font-semibold text-gray-700 block">Pickup Location</label>
-                                <div className="relative">
-                                    <FaMapMarkerAlt className="absolute left-3 top-3.5 text-gray-400" />
-                                    <input
-                                        type="text"
-                                        name="pickup"
-                                        required
-                                        value={formData.pickup}
-                                        onChange={handleChange}
-                                        className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none"
-                                        placeholder="Enter pickup address"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="space-y-1">
-                                <label className="text-sm font-semibold text-gray-700 block">Drop Location</label>
-                                <div className="relative">
-                                    <FaMapMarkerAlt className="absolute left-3 top-3.5 text-gray-400" />
-                                    <input
-                                        type="text"
-                                        name="drop"
-                                        required
-                                        value={formData.drop}
-                                        onChange={handleChange}
-                                        className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none"
-                                        placeholder="Enter drop address"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-1">
-                                    <label className="text-sm font-semibold text-gray-700 block">Date</label>
-                                    <div className="relative">
-                                        <FaCalendarAlt className="absolute left-3 top-3.5 text-gray-400" />
-                                        <input
-                                            type="date"
-                                            name="date"
-                                            required
-                                            value={formData.date}
-                                            onChange={handleChange}
-                                            className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="space-y-1">
-                                    <label className="text-sm font-semibold text-gray-700 block">Time</label>
-                                    <div className="relative">
-                                        <input
-                                            type="time"
-                                            name="time"
-                                            required
-                                            value={formData.time}
-                                            onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none"
-                                        />
                                     </div>
                                 </div>
                             </div>
