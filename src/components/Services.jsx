@@ -228,13 +228,13 @@ const Services = () => {
         {
             icon: <FaCity />,
             title: "Local City Packages",
-            description: "For all your city travel needs, efficiently hire a cab for 4Hrs/40Km, 8Hrs/80Km, or 12Hrs/120Km. Ideal for shopping trips, attending weddings, business meetings, or visiting relatives across Hyderabad without the hassle of driving.",
+            description: "For all your city travel needs, efficiently hire a cab for 8Hrs/80Km. Ideal for shopping trips, attending weddings, business meetings, or visiting relatives across Hyderabad without the hassle of driving.",
             detailedContent: [
                 "Navigate the busy streets of Hyderabad with ease. Our local rental packages give you the freedom of having a private car and driver at your disposal for as long as you need.",
                 "Whether you have multiple meetings in Hitech City or a shopping spree in Charminar, our drivers know the best routes to save your time. Enjoy the comfort of your private vehicle while we handle the traffic."
             ],
             features: [
-                "Flexible hourly packages (4hr, 8hr, 12hr)",
+                "Flexible hourly package (8hr/80km)",
                 "Unlimited stops within the booking duration",
                 "Ideal for weddings, meetings & shopping",
                 "No parking stress – chauffeur driven"
