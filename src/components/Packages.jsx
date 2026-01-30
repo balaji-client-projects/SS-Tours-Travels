@@ -1,7 +1,10 @@
 import React from 'react';
 import { FaClock, FaRoad, FaCheck } from 'react-icons/fa';
 
+import { useBooking } from '../context/BookingContext';
+
 const Packages = () => {
+    const { openBookingModal } = useBooking();
     return (
         <section className="py-20 bg-primary relative overflow-hidden">
             {/* Background Pattern */}
@@ -54,12 +57,15 @@ const Packages = () => {
 
                             <div className="mb-8">
                                 <p className="text-center text-gray-500 text-sm mb-2">Starts from</p>
-                                <p className="text-center text-5xl font-bold text-primary">₹2200<span className="text-xl text-gray-400 font-normal">*</span></p>
+                                <p className="text-center text-5xl font-bold text-primary">₹2400<span className="text-xl text-gray-400 font-normal">*</span></p>
                             </div>
 
-                            <a href="#contact" className="block w-full text-center bg-primary text-secondary text-lg font-bold py-4 rounded-xl hover:bg-opacity-90 transition shadow-lg">
+                            <button
+                                onClick={() => openBookingModal({ serviceType: 'Local Hourly Package', vehicle: 'Any' })}
+                                className="block w-full text-center bg-primary text-secondary text-lg font-bold py-4 rounded-xl hover:bg-opacity-90 transition shadow-lg"
+                            >
                                 Book Now
-                            </a>
+                            </button>
                         </div>
                     </div>
 

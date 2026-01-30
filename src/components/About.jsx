@@ -48,8 +48,8 @@ const About = () => {
                         <div className="relative">
                             {/* Car Image - Finding a sedan side view similar to reference */}
                             <img
-                                src={aboutCarImage}
-                                alt="SS Tours and Travels Reliable Cab"
+                                src="/images/fleet-4-branded.png"
+                                alt="SS Tours and Travels Branded Cab"
                                 className="w-full h-auto object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500 rounded-lg"
                             />
                             {/* Decorative Circle/Blob behind */}

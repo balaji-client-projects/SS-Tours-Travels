@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaPhoneAlt, FaCar } from 'react-icons/fa';
+import { useBooking } from '../context/BookingContext';
 
 const Hero = () => {
+    const { openBookingModal } = useBooking();
     return (
         <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-start overflow-hidden">
             {/* Background Image with Overlay */}
@@ -30,7 +32,8 @@ const Hero = () => {
                     </div>
 
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-8 font-sans">
-                        Welcome to SS Tours & Travels <br />
+                        Welcome to <br className="md:hidden" />
+                        <span className="whitespace-nowrap">SS Tours & Travels</span> <br />
                         <span className="text-secondary">Reliable Cab Service</span>
                     </h1>
 
@@ -46,12 +49,12 @@ const Hero = () => {
                         >
                             <FaPhoneAlt /> Call Now
                         </a>
-                        <a
-                            href="#contact"
+                        <button
+                            onClick={() => openBookingModal({ serviceType: 'Outstation' })}
                             className="flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-primary transition transform hover:scale-105 backdrop-blur-sm"
                         >
                             <FaCar /> Book a Cab
-                        </a>
+                        </button>
                     </div>
                 </motion.div>
             </div>

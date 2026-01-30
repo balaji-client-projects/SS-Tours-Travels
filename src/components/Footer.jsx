@@ -32,16 +32,10 @@ const Footer = () => {
                         <div className="pt-4">
                             <h4 className="text-secondary font-semibold mb-4 text-sm uppercase tracking-wider">Follow Us</h4>
                             <div className="flex space-x-3">
-                                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-lg group">
-                                    <FaFacebook size={18} className="group-hover:scale-110 transition-transform" />
-                                </a>
                                 <a href="https://www.instagram.com/ss_toursandtravels07" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 transition-all duration-300 shadow-lg group">
                                     <FaInstagram size={18} className="group-hover:scale-110 transition-transform" />
                                 </a>
-                                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-[#0077b5] transition-all duration-300 shadow-lg group">
-                                    <FaLinkedin size={18} className="group-hover:scale-110 transition-transform" />
-                                </a>
-                                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-[#25D366] transition-all duration-300 shadow-lg group">
+                                <a href="https://wa.me/919948058679" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-[#25D366] transition-all duration-300 shadow-lg group">
                                     <FaWhatsapp size={18} className="group-hover:scale-110 transition-transform" />
                                 </a>
                             </div>
@@ -122,7 +116,7 @@ const Footer = () => {
                                     </div>
                                     <div>
                                         <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-1">Email</p>
-                                        <a href="mailto:sstoursandtravels2007@gmail.com" className="text-gray-300 text-sm hover:text-white transition-colors">
+                                        <a href="mailto:sstoursandtravels2007@gmail.com" className="text-gray-300 text-sm hover:text-white transition-colors break-all">
                                             sstoursandtravels2007@gmail.com
                                         </a>
                                     </div>

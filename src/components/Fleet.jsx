@@ -1,4 +1,5 @@
 import React from 'react';
+import { useBooking } from '../context/BookingContext';
 import { FaUserFriends, FaSuitcase, FaCheckCircle, FaPhoneAlt } from 'react-icons/fa';
 import fleet1 from '../assets/fleet1.jpg';
 import fleet2 from '../assets/fleet2.jpg';
@@ -11,6 +12,7 @@ import fleet8 from '../assets/fleet8.jpg';
 import fleet9 from '../assets/fleet9.jpg';
 
 const Fleet = () => {
+    const { openBookingModal } = useBooking();
     const fleet = [
         {
             image: fleet1,
@@ -39,25 +41,18 @@ const Fleet = () => {
         {
             image: fleet4,
             title: "Spacious and Versatile",
-            category: "SUV/MUV - 4 Seater",
+            category: "Sedan - 4 Seater",
             seat: "4+1",
             luggage: "2-3 Bags",
-            description: "For larger groups or families, our SUVs and MPVs provide the perfect solution. With seating for 7-8 passengers, these vehicles offer plenty of space and comfort. Ideal for long-distance travel, our SUVs and MPVs ensure a smooth and enjoyable journey."
+            description: "Ideal for small families or business travelers. With seating for up to four passengers, these vehicles offer a spacious and comfortable ride. Perfect for specific travel needs where a sedan offers the best comfort and economy."
         },
+
         {
-            image: fleet5,
-            title: "Spacious and Versatile",
-            category: "Ertiga-7 Seater",
+            image: "/images/fleet-6.jpg",
+            title: "Toyota Innova-7 Seater",
+            category: "Toyota Innova -7 Seater",
             seat: "7",
             luggage: "4 Bags",
-            description: "For larger groups or families, our SUVs and MPVs provide the perfect solution. With seating for 7-8 passengers, these vehicles offer plenty of space and comfort. Ideal for long-distance travel, our SUVs and MPVs ensure a smooth and enjoyable journey."
-        },
-        {
-            image: fleet6,
-            title: "Swift Dezire -4 Seater",
-            category: "Swift Dezire -4 Seater",
-            seat: "4+1",
-            luggage: "2 Bags",
             description: "Spacious and comfortable for group travel. Features push-back seats and ample luggage space for a relaxing journey. Ideal for pilgrimages, corporate team outings, and large family reunions where staying together is key."
         },
         {
@@ -145,9 +140,12 @@ const Fleet = () => {
                                     </div>
                                 </div>
 
-                                <a href="#contact" className="inline-flex items-center gap-2 bg-white text-black py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-black transition-all duration-300 transform hover:-translate-y-1">
+                                <button
+                                    onClick={() => openBookingModal({ vehicle: item.category, serviceType: 'Outstation' })}
+                                    className="inline-flex items-center gap-2 bg-white text-black py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-black transition-all duration-300 transform hover:-translate-y-1"
+                                >
                                     <FaPhoneAlt size={16} /> Book Now
-                                </a>
+                                </button>
                             </div>
                         </div>
                     ))}

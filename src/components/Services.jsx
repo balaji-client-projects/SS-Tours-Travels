@@ -14,6 +14,8 @@ import sight4 from '../assets/sightseeing_4.png';
 import sight5 from '../assets/sightseeing_5.png';
 
 
+import { useBooking } from '../context/BookingContext';
+
 const ImageSlideshow = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -76,6 +78,7 @@ const ImageSlideshow = ({ images }) => {
 };
 
 const ServiceRow = ({ icon, title, description, features, image, images, index, detailedContent }) => {
+    const { openBookingModal } = useBooking();
     const isEven = index % 2 === 0;
     const location = useLocation();
     const isServicePage = location.pathname === '/services';
@@ -156,9 +159,12 @@ const ServiceRow = ({ icon, title, description, features, image, images, index, 
                         View Details
                     </Link>
                 ) : (
-                    <a href="#contact" className="inline-block bg-primary text-white py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-primary transition-all duration-300 shadow-md">
+                    <button
+                        onClick={() => openBookingModal({ serviceType: title })}
+                        className="inline-block bg-primary text-white py-3 px-8 rounded-full font-bold hover:bg-secondary hover:text-primary transition-all duration-300 shadow-md"
+                    >
                         Book Now
-                    </a>
+                    </button>
                 )}
             </div>
         </div>
@@ -193,7 +199,6 @@ const Services = () => {
                 "We cover a vast network of destinations, ensuring connectivity to major cities and towns. With SS Tours & Travels, you get the reliability of a premium service at the most economical rates."
             ],
             features: [
-                "Pay only for the drop distance",
                 "Door-to-door pickup and drop",
                 "Available for instant booking",
                 "Zero return fare liability"
