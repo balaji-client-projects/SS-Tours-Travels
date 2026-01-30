@@ -236,7 +236,7 @@ const Services = () => {
                 "Flexible hourly package (8hr/80km)",
                 "Unlimited stops within the booking duration",
                 "Ideal for weddings, meetings & shopping",
-                "No parking stress – chauffeur driven"
+                "No parking stress chauffeur driven"
             ],
             image: ertigaImg
         },
