@@ -17,7 +17,7 @@ const Fleet = () => {
     const fleet = [
         {
             image: fleet1,
-            title: "Comfortable and Stylish Travel with SS Tours & Travels",
+            title: "Comfortable and Stylish Travel",
             category: "Sedan - 4 Seater Cab",
             seat: "4+1",
             luggage: "2-3 Bags",
@@ -25,60 +25,59 @@ const Fleet = () => {
         },
         {
             image: fleet2,
-            title: "Comfortable and Stylish Travel with SS Tours & Travels",
-            category: "Innova -7 Seater Cab",
+            title: "Spacious Group Travel Solutions",
+            category: "Innova - 7 Seater Cab",
             seat: "7+1",
-            luggage: "2-3 Bags",
-            description: "Our sedan cabs in Hyderabad are ideal for small families or business travelers. With seating for up to four passengers, these vehicles offer a spacious and comfortable ride. Equipped with modern amenities and ample trunk space, our sedans cabs ensure a pleasant journey whether you’re traveling within the city or for outstation trips."
+            luggage: "3-4 Bags",
+            description: "Our Innova cabs are perfect for larger families or groups who need extra space and comfort. With superior legroom and ample luggage capacity, the Innova ensures a relaxing journey even on long outstation trips. Experience the reliability and power of Toyota Innova for your next adventure."
         },
         {
             image: fleet3,
-            title: "Spacious and Versatile",
-            category: "Premium SUV - 4 Seater",
-            seat: "4+1",
-            luggage: "2-3 Bags",
-            description: "For larger groups or families, our SUVs and MPVs provide the perfect solution. With seating for 7-8 passengers, these vehicles offer plenty of space and comfort. Ideal for long-distance travel, our SUVs and MPVs ensure a smooth and enjoyable journey. Book an SUV or MPV for your next group trip and experience the versatility and comfort of our larger vehicles."
+            title: "Premium Comfort for Every Journey",
+            category: "Premium SUV - 7 Seater",
+            seat: "6+1",
+            luggage: "3-4 Bags",
+            description: "Travel in luxury with our premium SUV fleet. Perfect for corporate travel, VIP guests, or special occasions, these vehicles offer top-tier comfort and style. Enjoy a smooth ride with advanced safety features and premium interiors."
         },
         {
             image: fleet4,
-            title: "Spacious and Versatile",
-            category: "Sedan - 4 Seater",
+            title: "Economical City Rides",
+            category: "Compact Sedan - 4 Seater",
             seat: "4+1",
-            luggage: "2-3 Bags",
-            description: "Ideal for small families or business travelers. With seating for up to four passengers, these vehicles offer a spacious and comfortable ride. Perfect for specific travel needs where a sedan offers the best comfort and economy."
+            luggage: "2 Bags",
+            description: "Our compact sedans are the perfect choice for quick city commutes and airport transfers. They offer the comfort of a private car at an economical price point. Ideal for solo travelers or couples with light luggage."
         },
-
         {
             image: "/images/fleet-6.jpg",
-            title: "Toyota Innova-7 Seater",
-            category: "Toyota Innova -7 Seater",
-            seat: "7",
+            title: "Toyota Innova Crysta",
+            category: "Toyota Innova Crysta - 7 Seater",
+            seat: "7+1",
             luggage: "4 Bags",
-            description: "Spacious and comfortable for group travel. Features push-back seats and ample luggage space for a relaxing journey. Ideal for pilgrimages, corporate team outings, and large family reunions where staying together is key."
+            description: "Experience the ultimate in comfort with the Toyota Innova Crysta. Known for its luxurious interiors and smooth drive, it's the preferred choice for long-distance travel and family vacations. Travel with peace of mind in this premium MPV."
         },
         {
             image: fleet7,
-            title: "Ertiga-7 Seater",
-            category: "Ertiga-7 Seater",
-            seat: "7",
-            luggage: "4 Bags",
-            description: "Ideal for large groups, pilgrimages, and corporate outings. Fully AC with comfortable seating arrangements. This vehicle ensures that no one is left behind and everyone enjoys the journey together in comfort."
+            title: "Maruti Suzuki Ertiga",
+            category: "Ertiga - 7 Seater",
+            seat: "6+1",
+            luggage: "3 Bags",
+            description: "The Maruti Suzuki Ertiga is a smart hybrid MPV that offers a perfect blend of comfort and fuel efficiency. It features a flexible seating arrangement and modern amenities, making it a great choice for city tours and weekend getaways with family and friends."
         },
         {
             image: fleet8,
-            title: "Swift Dezire(White) -4 Seater",
-            category: "Swift Dezire -4 Seater",
+            title: "Swift Dzire (White)",
+            category: "Swift Dzire - 4 Seater",
             seat: "4+1",
             luggage: "2 Bags",
-            description: "For wedding parties, school trips, and large events. Safe, spacious, and comfortable for many passengers. We provide well-maintained buses with professional drivers to manage your large format transport needs seamlessly."
+            description: "The Swift Dzire is India's most loved compact sedan, known for its comfortable cabin and smooth ride quality. It is perfectly suited for small families looking for a budget-friendly yet comfortable option for outstation trips or local sightseeing."
         },
         {
             image: fleet9,
-            title: "Swift Dezire(Gray) -4 Seater",
-            category: "Swift Dezire -4 Seater",
+            title: "Swift Dzire (Gray)",
+            category: "Swift Dzire - 4 Seater",
             seat: "4+1",
             luggage: "2 Bags",
-            description: "A premium travel experience for VIP guests and special occasions. Top-notch interiors and superior comfort. The Urbania stands out with its modern design and best-in-class passenger comfort features."
+            description: "Another excellent option in our sedan category, this Swift Dzire offers the same level of comfort and reliability. Whether it's a quick run to the airport or a day trip around the city, this vehicle ensures you reach your destination fresh and on time."
         }
     ];
 
