@@ -8,8 +8,7 @@ const testimonials = [
         location: "Hyderabad",
         trip: "Family Trip to Srisailam",
         rating: 5,
-        text: "We booked an Innova for a family trip to Srisailam. The driver, Ramesh, was extremely professional and polite. He drove very safely through the ghat sections. The car was clean and AC was working perfectly. Highly recommended for family trips!",
-        delay: 0.1
+        text: "We booked an Innova for a family trip to Srisailam. The driver, Ramesh, was extremely professional and polite. He drove very safely through the ghat sections. The car was clean and AC was working perfectly. Highly recommended!",
     },
     {
         name: "Priya Reddy",
@@ -17,15 +16,13 @@ const testimonials = [
         trip: "Airport Transfer",
         rating: 5,
         text: "I regularly use SS Tours & Travels for my airport drops. They are always on time, even for early morning flights. The booking process is simple via WhatsApp, and the drivers are well-mannered. It's the most reliable service in Hyderabad.",
-        delay: 0.2
     },
     {
         name: "Suresh Babu",
         location: "Vizag",
         trip: "One Way Drop to Vizag",
         rating: 4,
-        text: "Took a one-way drop from Hyderabad to Vizag. The pricing was very transparent with no hidden charges. The driver was good, but we stopped a bit too long for lunch. Otherwise, a very comfortable and smooth journey. Will book again.",
-        delay: 0.3
+        text: "Took a one-way drop from Hyderabad to Vizag. The pricing was very transparent with no hidden charges. The driver was good, but we stopped a bit too long for lunch. Otherwise, a very comfortable and smooth journey.",
     },
     {
         name: "Anjali Mehta",
@@ -33,97 +30,127 @@ const testimonials = [
         trip: "Local City Shopping",
         rating: 5,
         text: "Hired a sedan for 8 hours for shopping and visiting relatives. The driver knew all the shortcuts and best parking spots in Charminar and Banjara Hills. It saved us so much time and stress. Excellent service!",
-        delay: 0.4
     }
 ];
 
 const Testimonials = () => {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-10%" });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+    // Premium SaaS Easing: cubic-bezier(0.22, 1, 0.36, 1)
+    const premiumEase = [0.22, 1, 0.36, 1];
 
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2
+                staggerChildren: 0.18, // 0.18s stagger delay
+                delayChildren: 0.3 // Slight delay after header
             }
         }
     };
 
     const cardVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 40 }, // translateY: 40px → 0
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                type: "spring",
-                stiffness: 50,
-                damping: 20
+                duration: 0.8,
+                ease: premiumEase
+            }
+        }
+    };
+
+    const headerVariants = {
+        hidden: { opacity: 0, y: 30 }, // translateY: 30px → 0
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.9,
+                ease: premiumEase
             }
         }
     };
 
     return (
-        <section id="testimonials" className="py-24 bg-gray-50 overflow-hidden relative">
-            {/* Background Decor */}
+        <section id="testimonials" className="py-24 bg-gray-50 overflow-hidden relative font-sans">
+            {/* Ambient Background Glows - Subtle & Premium */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-secondary/5 blur-[100px]"></div>
-                <div className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[100px]"></div>
+                <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-blue-100/50 blur-[120px]"></div>
+                <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-indigo-100/40 blur-[120px]"></div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                {/* Header Section */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={headerVariants}
+                    className="text-center mb-20"
                 >
-                    <span className="text-secondary font-bold tracking-wider uppercase text-sm">Customer Stories</span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-primary mt-2 mb-6">What Our Travelers Say</h2>
-                    <div className="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+                    <span className="inline-block py-1 px-3 rounded-full bg-secondary/10 text-secondary font-semibold tracking-wide uppercase text-xs mb-4 border border-secondary/20">
+                        Customer Stories
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight leading-tight mb-4 text-center">
+                        Built on Trust & Reliability
+                    </h2>
+                    <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                        Join thousands of satisfied travelers who choose SS Tours & Travels for their journeys.
+                    </p>
                 </motion.div>
 
+                {/* Cards Grid */}
                 <motion.div
                     ref={ref}
                     variants={containerVariants}
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
                 >
                     {testimonials.map((item, index) => (
                         <motion.div
                             key={index}
                             variants={cardVariants}
-                            whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                            className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 flex flex-col h-full relative group"
+                            whileHover={{
+                                y: -8,
+                                boxShadow: "0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04)",
+                                transition: { duration: 0.4, ease: "easeOut" }
+                            }}
+                            className="bg-white rounded-[20px] p-8 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col h-full relative group transition-colors duration-300"
                         >
-                            {/* Quote Icon */}
-                            <div className="absolute top-6 right-6 text-gray-100 group-hover:text-secondary/20 transition-colors duration-300">
-                                <FaQuoteLeft size={40} />
+                            {/* Quote Icon - Subtle */}
+                            <div className="mb-6 text-indigo-100 group-hover:text-secondary/20 transition-colors duration-400">
+                                <FaQuoteLeft size={32} />
                             </div>
 
-                            {/* Stars */}
-                            <div className="flex gap-1 text-yellow-400 mb-6 relative z-10">
+                            {/* Rating */}
+                            <div className="flex gap-1 mb-4">
                                 {[...Array(5)].map((_, i) => (
-                                    <FaStar key={i} className={i < item.rating ? "" : "text-gray-300"} size={14} />
+                                    <FaStar
+                                        key={i}
+                                        className={i < item.rating ? "text-yellow-400" : "text-gray-200"}
+                                        size={14}
+                                    />
                                 ))}
                             </div>
 
                             {/* Text */}
-                            <p className="text-gray-600 leading-relaxed mb-8 flex-grow relative z-10">
+                            <p className="text-gray-600 leading-7 mb-6 text-[15px] font-medium flex-grow">
                                 "{item.text}"
                             </p>
 
-                            {/* User Info */}
-                            <div className="flex items-center gap-4 mt-auto border-t border-gray-100 pt-6">
-                                <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-400 text-2xl">
-                                    <FaUserCircle />
+                            {/* User Profile */}
+                            <div className="flex items-center gap-3 mt-auto pt-6 border-t border-gray-50">
+                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-400">
+                                    <FaUserCircle size={24} />
                                 </div>
-                                <div>
-                                    <h4 className="font-bold text-primary text-sm">{item.name}</h4>
-                                    <p className="text-xs text-gray-500 font-medium uppercase tracking-wide">{item.trip}</p>
+                                <div className="flex flex-col">
+                                    <span className="font-bold text-gray-900 text-sm">{item.name}</span>
+                                    <span className="text-xs text-gray-400 font-medium">{item.trip}</span>
                                 </div>
                             </div>
                         </motion.div>
