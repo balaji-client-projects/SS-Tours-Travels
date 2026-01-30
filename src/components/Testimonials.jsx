@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaQuoteLeft, FaStar, FaUserCircle } from 'react-icons/fa';
+import { FaQuoteLeft, FaStar, FaUserCircle, FaPen } from 'react-icons/fa';
+import FeedbackModal from './FeedbackModal';
 
 const testimonials = [
     {
@@ -35,6 +36,7 @@ const testimonials = [
 
 const Testimonials = () => {
     const ref = useRef(null);
+    const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     // Premium SaaS Easing: cubic-bezier(0.22, 1, 0.36, 1)
@@ -98,9 +100,18 @@ const Testimonials = () => {
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight leading-tight mb-4 text-center">
                         Built on Trust & Reliability
                     </h2>
-                    <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed mb-8">
                         Join thousands of satisfied travelers who choose SS Tours & Travels for their journeys.
                     </p>
+
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setIsFeedbackOpen(true)}
+                        className="inline-flex items-center gap-2 bg-white text-primary border border-gray-200 px-6 py-3 rounded-full font-semibold shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+                    >
+                        <FaPen className="text-secondary" /> Write a Review
+                    </motion.button>
                 </motion.div>
 
                 {/* Cards Grid */}
@@ -157,6 +168,7 @@ const Testimonials = () => {
                     ))}
                 </motion.div>
             </div>
+            <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
         </section>
     );
 };
